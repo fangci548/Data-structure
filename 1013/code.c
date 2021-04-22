@@ -21,7 +21,7 @@ void save(int number, int power, Poly **head){
         }
         else{
             now = *head;
-            while(now != NULL){ //¦¸¤è¬Û¦P «Y¼Æ¬Û¥[
+            while(now != NULL){ //æ¬¡æ–¹ç›¸åŒ ä¿‚æ•¸ç›¸åŠ 
                 if(now->power == power){
                     now->number += number;
                     flag = 1;
@@ -31,14 +31,14 @@ void save(int number, int power, Poly **head){
             }
             if(flag == 0){
                 now = 0;
-                if(power > (*head)->power){ //­Y¦¸¤è¤j©ó²Ä¤@¶µ «hheadµ¥©ó²{¦b¿é¤J³o¶µ
+                if(power > (*head)->power){ //è‹¥æ¬¡æ–¹å¤§æ–¼ç¬¬ä¸€é … å‰‡headç­‰æ–¼ç¾åœ¨è¼¸å…¥é€™é …
                     previous = malloc(sizeof(Poly));
                     previous->number = number;
                     previous->power = power;
                     previous->next = *head;
                     *head = previous;
                 }
-                else{  //´M§äÀ³¦b­ş´¡¤J°}¦C
+                else{  //å°‹æ‰¾æ‡‰åœ¨å“ªæ’å…¥é™£åˆ—
                     now = *head;
                     previous = *head;
                     while(now != NULL){
@@ -118,7 +118,7 @@ int main(){
 	int i, j, number, power, flag = 0, now, stop = 0;
 	Poly *head1 = NULL, *nowptr = NULL, *head2 = NULL, *previous = NULL, *next;
 	while(stop == 0){
-		printf("¿é¤J¦h¶µ¦¡1(«Y¼Æ ¦¸¤è): ");
+		printf("è¼¸å…¥å¤šé …å¼1(ä¿‚æ•¸ æ¬¡æ–¹): ");
 		scanf("%d %d", &number, &power);
 		if(number == 0 && power == 0){
 			stop = 1;
@@ -127,13 +127,13 @@ int main(){
             save(number, power, &head1);
 		}
 	}
-	printf("--¦h¶µ¦¡1¬°: ");
+	printf("--å¤šé …å¼1ç‚º: ");
     print(head1);
     printf("\n");
 
     stop = 0;
     while(stop == 0){
-		printf("¿é¤J¦h¶µ¦¡2(«Y¼Æ ¦¸¤è): ");
+		printf("è¼¸å…¥å¤šé …å¼2(ä¿‚æ•¸ æ¬¡æ–¹): ");
 		scanf("%d %d", &number, &power);
 		if(number == 0 && power == 0){
 			stop = 1;
@@ -142,10 +142,10 @@ int main(){
             save(number, power, &head2);
 		}
 	}
-    printf("--¦h¶µ¦¡2¬°: ");
+    printf("--å¤šé …å¼2ç‚º: ");
     print(head2);
     printf("\n");
 
-    printf("¬Û¥[µ²ªG: ");
+    printf("ç›¸åŠ çµæœ: ");
     plus(head1,head2);
 }
